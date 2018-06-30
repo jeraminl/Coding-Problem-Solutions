@@ -1,0 +1,33 @@
+// Complete the arrayManipulation function below.
+
+
+long arrayManipulation(int n, vector<vector<int>> queries) {
+    vector<int> a;
+    long max = 0;
+    
+    for (int i = 0; i < n; ++i){
+        a.push_back(0);
+    }
+    
+    int q_num = queries.size();
+    
+    for (int j = 0; j < q_num; ++j){
+        a[queries[j][0]-1] += queries[j][2];
+        a[queries[j][1]] -= queries[j][2];
+        
+            
+    }
+    
+    long sum = 0;
+    
+    for (int k = 0; k < n; ++k){
+        sum+=a[k]; 
+        if (max < sum)
+            max = sum;
+    }
+    
+    
+    return max;
+
+
+}
